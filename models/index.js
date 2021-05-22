@@ -1,7 +1,7 @@
 const express = require('express')
-const { getAllAuthors, getAuthorGenreID} = require('./controllers/authors')
+const { getAllAuthors, getAuthorGenreID } = require('./controllers/authors')
 const { getAllGenres, getGenreID } = require('./controllers/genres')
-const { getAllNovels, getNovelsID} = require('./controllers/novels')
+const { getAllNovels, getNovelsID } = require('./controllers/novels')
 
 const app = express()
 
@@ -17,3 +17,7 @@ app.get('novels', getAllNovels)
 
 app.get('novels/:id', getNovelsID)
 
+app.listen(1337, () => {
+  // eslint-disable-next-line no-console
+  console.log('Listening on port 1337')
+})

@@ -1,23 +1,25 @@
-const express = require('express')
-const { getAllAuthors, getAuthorGenreID } = require('./controllers/authors')
-const { getAllGenres, getGenreID } = require('./controllers/genres')
-const { getAllNovels, getNovelsID } = require('./controllers/novels')
+const Sequelize = require('sequelize')
+const AuthorsModel = require('./Authors')
+const NovelsModel = require('./Novels')
+const GenresModel = require('./Genres')
+const NovelsGenresModel = ('./NovelsGenres')
 
-const app = express()
-
-app.get('/authors', getAllAuthors)
-
-app.get('authors/:id', getAuthorGenreID)
-
-app.get('genres', getAllGenres)
-
-app.get('genres/:id', getGenreID)
-
-app.get('novels', getAllNovels)
-
-app.get('novels/:id', getNovelsID)
-
-app.listen(1337, () => {
-  // eslint-disable-next-line no-console
-  console.log('Listening on port 1337')
+const connection = new Sequelize('greatnovels', 'greatnovels', 'NovelPa$$word', {
+  host: 'localhost', dialect: 'mysql'
 })
+
+const Authors = AuthorsModel(connection, Sequelize)
+const Novels = NovelsModel(connection, Sequelize)
+const Genres = GenresModel(connection, Sequelize)
+const NovelsGenres = NovelsGenresModel(connection, Sequelize)
+
+Products.belongsTo(Manufacturers)
+Manufacturers.hasMany(Products)
+
+module.exports = {
+  Authors,
+  Novels,
+  Genres,
+  NovelsGenres
+}
+

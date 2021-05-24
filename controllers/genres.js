@@ -2,10 +2,10 @@ const models = require('../models')
 
 const getAllGenres = async (req, res) => {
   try {
-    const genres = await models.Genres.findAll({
+    const genre = await models.Genres.findAll({
     })
 
-    return res.send(genres)
+    return res.send(genre)
   } catch (error) {
     return res.status(500).send('Unable to retrieve all genres')
   }

@@ -17,6 +17,10 @@ app.get('novels', getAllNovels)
 
 app.get('novels/:id', getNovelById)
 
+app.all('*', (req, res) => {
+  return res.status(404).send('404 Error')
+})
+
 app.listen(1337, () => {
   // eslint-disable-next-line no-console
   console.log('Listening on port 1337')

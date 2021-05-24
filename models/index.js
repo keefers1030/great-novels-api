@@ -9,9 +9,9 @@ const connection = new Sequelize('greatnovels', 'greatnovels', 'NovelPa$$word', 
 })
 
 const Authors = AuthorsModel(connection, Sequelize)
-const Novels = NovelsModel(connection, Sequelize)
+const Novels = NovelsModel(connection, Sequelize, Authors)
 const Genres = GenresModel(connection, Sequelize)
-const NovelsGenres = NovelsGenresModel(connection, Sequelize)
+const NovelsGenres = NovelsGenresModel(connection, Sequelize, Genres, Novels)
 
 Novels.belongsTo(Authors)
 Authors.hasMany(Novels)

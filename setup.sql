@@ -17,17 +17,17 @@ CREATE TABLE genres (
   createdAt DATETIME DEFAULT NOW(),
   updatedAt DATETIME DEFAULT NOW() ON UPDATE NOW(),
   deletedAt DATETIME,
-  PRIMARY KEY(id),
-  FOREIGN KEY (manufacturerId) REFERENCES manufacturers(id)
+  PRIMARY KEY(id)
 );
 CREATE TABLE novels (
   id INT auto_increment,
   title VARCHAR(255) NOT NULL,
+  authorId INT,
   createdAt DATETIME DEFAULT NOW(),
   updatedAt DATETIME DEFAULT NOW() ON UPDATE NOW(),
   deletedAt DATETIME,
   PRIMARY KEY(id),
-  FOREIGN KEY (authorId) REFERENCES authors(id),
+  FOREIGN KEY (authorId) REFERENCES authors(id)
 );
 CREATE TABLE novelsGenres (
   id INT auto_increment,

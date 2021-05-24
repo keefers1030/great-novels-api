@@ -3,9 +3,8 @@ const models = require('../models')
 const getAllAuthors = async (req, res) => {
   try {
     const authors = await models.Authors.findAll({
-      include: [{ model: models.Authors },
-      include: { model: models.Genres} ]
     })
+
     return res.send(authors)
   } catch (error) {
     return res.status(500).send('Unable to retrieve authors')
@@ -18,7 +17,10 @@ const getAuthorById = async (req, res) => {
 
     const author = await models.Authors.findOne({
       where: { id },
-      include: [{ model: models.Authors }]
+      include: [{
+        model: models.Novels,
+        include: [{ model: models.Genres }]
+      }]
     })
 
     return author ? res.send(author) : res.sendStatus(404)

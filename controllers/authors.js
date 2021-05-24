@@ -12,4 +12,19 @@ const getAllAuthors = async (req, res) => {
   }
 }
 
-const
+const getAuthorById = async (req, res) => {
+  try {
+    const { id } = req.params
+
+    const author = await models.Authors.findOne({
+      where: { id },
+      include: [{ model: models.Authors }]
+    })
+
+    return author ? res.send(author) : res.sendStatus(404)
+  } catch (error) {
+    return res.status(500).send('Unable to retrieve author')
+  }
+}
+
+module.exports = { getAllAuthors, getAuthorById }

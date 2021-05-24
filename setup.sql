@@ -31,6 +31,8 @@ CREATE TABLE novels (
 );
 CREATE TABLE novelsGenres (
   id INT auto_increment,
+  genreId INT,
+  novelId INT,
   createdAt DATETIME DEFAULT NOW(),
   updatedAt DATETIME DEFAULT NOW() ON UPDATE NOW(),
   deletedAt DATETIME,
@@ -98,7 +100,6 @@ VALUES
   ("Time Travel"),
   ("Thriller"),
   ("War");
-
 INSERT INTO
   novelsGenres (genreId, novelId)
 VALUES

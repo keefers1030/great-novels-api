@@ -1,21 +1,21 @@
 const express = require('express')
-const { getAllAuthors, getAuthorGenreID } = require('./controllers/authors')
-const { getAllGenres, getGenreID } = require('./controllers/genres')
-const { getAllNovels, getNovelsID } = require('./controllers/novels')
+const { getAllAuthors, getAuthorById } = require('./controllers/authors')
+const { getAllGenres, getGenreById } = require('./controllers/genres')
+const { getAllNovels, getNovelById } = require('./controllers/novels')
 
 const app = express()
 
 app.get('/authors', getAllAuthors)
 
-app.get('authors/:id', getAuthorGenreID)
+app.get('authors/:id', getAuthorById)
 
 app.get('genres', getAllGenres)
 
-app.get('genres/:id', getGenreID)
+app.get('genres/:id', getGenreById)
 
 app.get('novels', getAllNovels)
 
-app.get('novels/:id', getNovelsID)
+app.get('novels/:id', getNovelById)
 
 app.listen(1337, () => {
   // eslint-disable-next-line no-console

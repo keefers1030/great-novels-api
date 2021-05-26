@@ -2,8 +2,7 @@ const models = require('../models')
 
 const getAllAuthors = async (req, res) => {
   try {
-    const authors = await models.Authors.findAll({
-    })
+    const authors = await models.Authors.findAll()
 
     return res.send(authors)
   } catch (error) {
@@ -14,7 +13,7 @@ const getAllAuthors = async (req, res) => {
 const getAuthorById = async (req, res) => {
   try {
     const { id } = req.params
-
+console.log(id)
     const author = await models.Authors.findOne({
       where: { id },
       include: [{

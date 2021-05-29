@@ -28,13 +28,13 @@ module.exports = {
     await queryInterface.createTable('novels', {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
       title: { type: Sequelize.STRING, allowNull: false },
-      authorId: { type: Sequelize.INTEGER, references: { model: Authors, key: 'id' } },
+      authorId: { type: Sequelize.INTEGER, references: { model: 'authors', key: 'id' } },
     })
 
     return queryInterface.createTable('novelsGenres', {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      novelId: { type: Sequelize.INTEGER, references: { model: Novels, key: 'id' } },
-      genreId: { type: Sequelize.INTEGER, references: { model: Genres, key: 'id' } },
+      novelId: { type: Sequelize.INTEGER, references: { model: 'novels', key: 'id' } },
+      genreId: { type: Sequelize.INTEGER, references: { model: 'genres', key: 'id' } },
     })
   },
 

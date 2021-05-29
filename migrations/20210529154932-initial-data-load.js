@@ -16,7 +16,14 @@ module.exports = {
       { name: 'Fiction, Historical Fiction' },
       { name: 'Fiction, Historical Fiction, War, Russian Literature' },
       { name: 'Fiction, Historical Fiction' },
+    ])
 
+    await queryInterface.bulkInsert('novels', [
+      { title: 'Dracula' },
+      { title: 'The Picture of Dorian Gray' },
+      { title: 'The Color Purple' },
+      { title: 'War and Peace' },
+      { title: 'A Tale of Two Cities' }
     ])
   },
 

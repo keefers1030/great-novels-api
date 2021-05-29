@@ -25,6 +25,15 @@ module.exports = {
       { title: 'War and Peace' },
       { title: 'A Tale of Two Cities' }
     ])
+
+    return queryInterface.bulkInsert('novelsGenres', [
+      { novelId: 1, genreId: 1 },
+      { novelId: 2, genreId: 2 },
+      { novelId: 3, genreId: 3 },
+      { novelId: 4, genreId: 4 },
+      { novelId: 5, genreId: 5 },
+    ])
+
   },
 
   down: async (queryInterface, Sequelize) => {

@@ -36,7 +36,11 @@ module.exports = {
 
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface) => {
+    await queryInterface.bulkDelete('novelsGenres')
+    await queryInterface.bulkDelete('novels')
+    await queryInterface.bulkDelete('genres')
 
+    return queryInterface.bulkDelete('authors')
   }
-};
+}

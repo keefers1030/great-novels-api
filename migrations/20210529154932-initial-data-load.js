@@ -11,29 +11,51 @@ module.exports = {
     ])
 
     await queryInterface.bulkInsert('genres', [
-      { name: 'Ficton, Horror, Fantasy' },
-      { name: 'Ficton, Horror, Gothic, Fantasy' },
-      { name: 'Fiction, Historical Fiction' },
-      { name: 'Fiction, Historical Fiction, War, Russian Literature' },
-      { name: 'Fiction, Historical Fiction' },
+      { name: 'Adventure' },
+      { name: 'African Literature' },
+      { name: 'Crime' },
+      { name: 'Drama' },
+      { name: 'Dystopia' },
+      { name: 'Fantasy' },
+      { name: 'Fiction' },
+      { name: 'French Literature' },
+      { name: 'Gothic' },
+      { name: 'Historical Fiction' },
+      { name: 'Horror' },
+      { name: 'Mystery' },
+      { name: 'Plays' },
+      { name: 'Russian Literature' },
+      { name: 'Science Fiction' },
+      { name: 'Thriller' },
+      { name: 'Time Travel' },
+      { name: 'War' },
     ])
 
     await queryInterface.bulkInsert('novels', [
-      { title: 'Dracula' },
-      { title: 'The Picture of Dorian Gray' },
-      { title: 'The Color Purple' },
-      { title: 'War and Peace' },
-      { title: 'A Tale of Two Cities' }
+      { title: 'Dracula', authorId: 1 },
+      { title: 'The Picture of Dorian Gray', authorId: 2 },
+      { title: 'The Color Purple', authordId: 3 },
+      { title: 'War and Peace', authordId: 4 },
+      { title: 'A Tale of Two Cities', authordId: 5 }
     ])
 
     return queryInterface.bulkInsert('novelsGenres', [
-      { novelId: 1, genreId: 1 },
-      { novelId: 2, genreId: 2 },
-      { novelId: 3, genreId: 3 },
-      { novelId: 4, genreId: 4 },
-      { novelId: 5, genreId: 5 },
+      { novelId: 1, genreId: 7 },
+      { novelId: 1, genreId: 11 },
+      { novelId: 1, genreId: 6 },
+      { novelId: 2, genreId: 7 },
+      { novelId: 2, genreId: 11 },
+      { novelId: 2, genreId: 9 },
+      { novelId: 2, genreId: 6 },
+      { novelId: 3, genreId: 7 },
+      { novelId: 3, genreId: 10 },
+      { novelId: 4, genreId: 7 },
+      { novelId: 4, genreId: 10 },
+      { novelId: 4, genreId: 18 },
+      { novelId: 4, genreId: 14 },
+      { novelId: 5, genreId: 7 },
+      { novelId: 5, genreId: 10 },
     ])
-
   },
 
   down: async (queryInterface) => {

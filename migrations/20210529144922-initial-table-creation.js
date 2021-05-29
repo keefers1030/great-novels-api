@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -30,10 +30,19 @@ module.exports = {
       title: { type: Sequelize.STRING, allowNull: false },
       authorId: { type: Sequelize.INTEGER, references: { model: Authors, key: 'id' } },
     })
+
+    return queryInterface.createTable('novelsGenres', {
+      id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+      novelId: { type: Sequelize.INTEGER, references: { model: Novels, key: 'id' } },
+      genreId: { type: Sequelize.INTEGER, references: { model: Genres, key: 'id' } },
+    })
   },
 
   down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('novelsGenres')
+    await queryInterface.dropTable('novels')
     await queryInterface.dropTable('genres')
-    await queryInterface.dropTable('authors')
+
+    return queryInterface.dropTable('authors')
   }
 }

@@ -17,7 +17,7 @@ const getAuthorById = async (req, res) => {
   try {
     const { id } = req.params
     const author = await models.Authors.findOne({
-      where: { id: {[models.Op.like]: `%${id}` } },
+      where: { id: { [models.Op.like]: `%${id}` } },
       include: [{
         model: models.Novels,
         include: [{ model: models.Genres }]

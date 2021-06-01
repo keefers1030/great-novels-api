@@ -34,9 +34,9 @@ module.exports = {
     await queryInterface.bulkInsert('novels', [
       { title: 'Dracula', authorId: 1 },
       { title: 'The Picture of Dorian Gray', authorId: 2 },
-      { title: 'The Color Purple', authordId: 3 },
-      { title: 'War and Peace', authordId: 4 },
-      { title: 'A Tale of Two Cities', authordId: 5 }
+      { title: 'The Color Purple', authorId: 3 },
+      { title: 'War and Peace', authorId: 4 },
+      { title: 'A Tale of Two Cities', authorId: 5 }
     ])
 
     return queryInterface.bulkInsert('novelsGenres', [
